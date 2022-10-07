@@ -1,0 +1,151 @@
+.register__container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.register__header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.register__logo {
+  height: 38px;
+  width: 38px;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.register__logo:hover {
+  opacity: 0.6;
+}
+
+.register__title {
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #FFFFFF;
+  margin-top: 40px;
+}
+
+.register__form {
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 400;
+}
+
+.register__label {
+  font-size: 10px;
+  line-height: 12px;
+  color:#8B8B8B;
+  margin-bottom: 24px;
+}
+
+.register__input {
+  position: relative;
+  outline: none;
+  font-size: 14px;
+  line-height: 17px;
+  color:#FFFFFF;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid rgba(66, 66, 66, 1);
+  margin: 5px 0 6px;
+  padding: 0;
+}
+.register__input:hover {
+  border-bottom: 1px solid rgba(66, 133, 244, 1);
+}
+
+.register__error {
+  position: absolute;
+  margin-top: 40px;
+  color:#EE3465;
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register__label {
+  display: flex;
+  flex-direction: column;
+}
+
+.register__button-reg {
+  width: 400px;
+  height: 45px;
+  background: #4285F4;
+  border: none;
+  color:#FFFFFF;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  margin-top: 123px;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.register__button-reg:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.register__toauth {
+  margin: 0 auto;
+  margin-top: 16px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  justify-content: center;
+}
+
+.register__toauth-titke {
+  color:#8B8B8B;
+  margin-right: 6px;
+}
+
+.register__toauth-link {
+  color:#4285F4;
+  text-decoration: none;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.register__toauth-link:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 767px) {
+  .register__container {
+    width: 320px;
+    height: 100vh;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 auto;
+  }
+
+  .register__header {
+    margin-top: 56px;
+    margin-bottom: 80px;
+    align-items: center;
+  }
+
+  .register__title {
+    margin-top: 50px;
+  }
+
+  .register__form {
+    width: 260px;
+    margin-bottom: 65px;
+  }
+
+  .register__button-reg {
+    width: 260px;
+  }
+
+}
