@@ -16,12 +16,10 @@
 .portfolio__list {
   margin: 0;
   padding: 0;
-  list-style-type: none;
 }
 
 .portfolio__list-point {
   display: flex;
-  justify-content: space-between;
   padding-top: 20px;
   border-bottom: 1px solid rgba(66, 66, 66, 1);
 }
@@ -34,21 +32,29 @@
   font-weight: 400;
   font-size: 30px;
   line-height: 50px;
-  margin: 0;
   padding: 0;
+  color: #FFFFFF;
+  margin: 0;
+  padding-bottom: 19px;
 }
 
 .portfolio__link {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 29px;
-  height: 60px;
+  width: 100%;
+  justify-content: space-between;
+  text-decoration: none;
   transition: opacity 0.4s ease-in-out;
 }
 
 .portfolio__link:hover {
   opacity: 0.6;
+}
+
+.portfolio__link-img {
+  display: flex;
+  width: 22px;
+  height: 22px;
+
 }
 
 @media screen and (max-width: 1123px) {
@@ -66,10 +72,12 @@
 
   .portfolio__subtitle {
     font-size: 28px;
+    padding-bottom: 19px;
   }
 
-  .portfolio__link {
-    width: 27px;
+  .portfolio__link-img {
+    width: 19px;
+    height: 19px;
   }
 }
 
@@ -89,12 +97,12 @@
   .portfolio__subtitle {
     font-size: 18px;
     line-height: 28px;
-    padding-bottom: 19px;
   }
 
-  .portfolio__link {
-    width: 18px;
-    height: 28px;
+  .portfolio__link-img {
+    width: 14px;
+    height: 14px;
+    padding-top: 10px;
   }
-
 }
+
