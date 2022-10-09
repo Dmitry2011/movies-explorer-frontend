@@ -1,0 +1,131 @@
+.promo {
+  display: flex;
+  flex-direction: column;
+  min-height: 648px;
+  background-color:#073042;
+}
+
+.promo__container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  font-family: 'Inter', Arial, sans-serif;
+  color: #FFFFFF;
+}
+
+.promo__title {
+  margin: 75px 0px 0px 70px;
+  padding: 0;
+  width: 640px;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+}
+
+.promo__subtitle {
+  width: 310px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  padding: 0;
+  margin: 36px 0px 0px 70px;
+}
+
+.promo__info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  text-decoration: none;
+  width: 129px;
+  height: 36px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 0;
+  margin: 156px 0px 0px 70px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  color: #FFFFFF;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.promo__info:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.promo__logo {
+  width: 304px;
+  height: 310px;
+  position: absolute;
+  right: 70px;
+  top: 75px;
+}
+
+@media screen and (max-width: 1060px) {
+  .promo {
+    min-height: 924px;
+  }
+
+  .promo__container {
+    align-items: center;
+  }
+
+  .promo__title {
+    margin-top: 492px;
+    margin-left: 0px;
+    text-align: center;
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .promo__subtitle {
+    margin-top: 22px;
+    margin-left: 0px;
+    text-align: center;
+  }
+
+  .promo__info {
+    margin-top: 92px;
+    margin-left: 0px;
+  }
+
+  .promo__logo {
+    top: 75px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+  .promo {
+    min-height: 710px;
+  }
+
+  .promo__title {
+    margin-top: 320px;
+    font-size: 30px;
+    line-height: 38px;
+    width: 100%;
+  }
+
+  .promo__subtitle {
+    margin-top: 24px;
+    width: 80%
+  }
+
+  .promo__info {
+    margin-top: 80px;
+  }
+
+  .promo__logo {
+    top: 70px;
+    width: 206px;
+    height: 210px;
+  }
+
+}

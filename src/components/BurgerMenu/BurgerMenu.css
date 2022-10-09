@@ -1,0 +1,118 @@
+.burger-menu {
+  display: flex;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  justify-content: flex-end;
+  background-color: rgba(0,0,0,.5);
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.burger-menu_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.burger-menu-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  width: 520px;
+  height: 100%;
+  background-color:#202020;
+  z-index: 2;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.burger-menu__container-movies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 159px;
+}
+
+.burger-menu__movies {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  color: #FFFFFF;
+  transition: opacity 0.4s ease-in-out;
+  margin-bottom: 28px;
+}
+
+.burger-menu__movies_current {
+  padding-bottom: 4px;
+  border-bottom: 2px solid rgba(255, 255, 255, 1);
+}
+
+.burger-menu__movies:last-child {
+  margin-bottom: 0px;
+}
+
+.burger-menu__movies:hover {
+  opacity: 0.6;
+}
+
+.burger-menu__profile {
+  display: flex;
+  text-decoration: none;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFFFF;
+  transition: opacity 0.4s ease-in-out;
+  margin-bottom: 92px;
+}
+
+.burger-menu__profile:hover {
+  opacity: 0.6;
+}
+
+.burger-menu__container-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #313131;
+  width: 26px;
+  height: 30px;
+  border-radius: 4px;
+}
+
+.burger-menu__profile-icon {
+  background-image: url(../../images/profile_icon_i.svg);
+  background-size: cover;
+  width: 12px;
+  height: 14px;
+}
+
+.burger-menu__close-button {
+  background: none;
+  border: none;
+  padding: 0px;
+  background-image: url(../../images/close_icon.svg);
+  background-position: center;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  cursor: pointer;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.burger-menu__close-button:hover {
+  opacity: 0.6;
+}
