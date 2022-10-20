@@ -4,7 +4,6 @@ import './Footer.css';
 
 const Footer = () => {
 
-    // получение текущего значения "год"
   const getCurrentYear = () => {
     return new Date().getFullYear();
   };

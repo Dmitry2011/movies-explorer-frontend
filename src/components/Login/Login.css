@@ -64,7 +64,6 @@
   position: absolute;
   margin-top: 40px;
   color:#EE3465;
-  max-width: 400px;
 }
 
 .auth__form {
@@ -94,12 +93,6 @@
 .auth__button-auth:hover {
   opacity: 0.6;
   cursor: pointer;
-}
-
-.auth__button-auth-disabled{
-  opacity: 0.2;
-  cursor: auto;
-  pointer-events: none;
 }
 
 .auth__toreg {
@@ -158,9 +151,5 @@
 
   .auth__toreg {
     margin-top: 14px;
-  }
-
-  .auth__error {
-    max-width: 260px;
   }
 }

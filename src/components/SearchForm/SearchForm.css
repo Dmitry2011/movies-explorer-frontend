@@ -63,12 +63,6 @@
   opacity: 0.6;
 }
 
-.search-form__button-disabled {
-  opacity: 0.2;
-  cursor: auto;
-  pointer-events: none;
-}
-
 @media screen and (max-width: 1123px) {
   .search-form-border {
     width: 92%;
@@ -100,4 +94,5 @@
     margin-right: 19px;
     width: 80px;
   }
+
 }

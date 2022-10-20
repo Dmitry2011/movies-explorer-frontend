@@ -9,6 +9,7 @@
     font-size: 24px;
     line-height: 29px;
     color: #FFFFFF;
+
   }
 
 .profile__title {
@@ -26,6 +27,7 @@
     margin-top: 70px;
   }
 }
+
 
 .profile__form{
   display: flex;
@@ -81,7 +83,7 @@
   position: absolute;
   float: right;
   margin-top: 4px;
-  max-width: 410px;
+
   color:#EE3465;
 }
 
@@ -105,12 +107,6 @@
 .profile__button-edit:hover {
   opacity: 0.6;
   cursor: pointer;
-}
-
-.profile__button-edit-disabled {
-  opacity: 0.2;
-  cursor: auto;
-  pointer-events: none;
 }
 
 .profile__button-exit {

@@ -7,6 +7,7 @@
   margin: 0 auto;
   font-family: 'Inter', Arial, sans-serif;
   color: #FFFFFF;
+
 }
 
 .techs-background {
@@ -136,4 +137,5 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
   }
+
 }

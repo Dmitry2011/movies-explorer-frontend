@@ -56,7 +56,6 @@
   margin: 5px 0 6px;
   padding: 0;
 }
-
 .register__input:hover {
   border-bottom: 1px solid rgba(66, 133, 244, 1);
 }
@@ -65,7 +64,6 @@
   position: absolute;
   margin-top: 40px;
   color:#EE3465;
-  max-width: 400px;
 }
 
 .register__form {
@@ -95,12 +93,6 @@
 .register__button-reg:hover {
   opacity: 0.6;
   cursor: pointer;
-}
-
-.register__button-reg-disabled {
-  opacity: 0.2;
-  cursor: auto;
-  pointer-events: none;
 }
 
 .register__toauth {
@@ -156,7 +148,4 @@
     width: 260px;
   }
 
-  .register__error {
-    max-width: 260px;
-  }
 }
