@@ -1,15 +1,36 @@
 import React from 'react';
-import './Profile.css';
 import { Link } from 'react-router-dom';
+import './Profile.css';
 import Header from '../Header/Header';
+import validationInput from '../../utils/validation';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
-const Profile = (loggedIn) => {
+const Profile = ({ loggedIn, updateUser, signOut }) => {
+
+    // текущий пользователь
+  const currentUser = React.useContext(CurrentUserContext);
+
+  const { enteredValues, handleChange, errors, resetForm, isFormValid } = validationInput();
+
+    // обработчик сабмита
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    updateUser({
+      name: enteredValues.name,
+      email: enteredValues.email,
+    });
+  };
+
+  React.useEffect(() => {
+    currentUser ? resetForm(currentUser) : resetForm();
+  }, [currentUser, resetForm]);
+
 
   return (
     <section className='profile'>
       <Header loggedIn={loggedIn}/>
-      <div className='profile__title'>Привет, Виталий!</div>
-      <form id='profile' className='profile__form'>
+      <div className='profile__title'>Привет, {currentUser.name}!</div>
+      <form id='profile' className='profile__form form' onSubmit={handleSubmit}>
         <label className='profile__label'>
           Имя
           <input
@@ -20,8 +41,10 @@ const Profile = (loggedIn) => {
             required
             minLength="2"
             maxLength="30"
+            value={enteredValues.name || ''}
+            onChange={handleChange}
           />
-          <span className='profile__error'>Минимум 2 символа</span>
+          <span className='profile__error'>{errors.name}</span>
         </label>
         <label className='profile__label'>
           E-mail
@@ -31,14 +54,16 @@ const Profile = (loggedIn) => {
             name='email'
             type='email'
             required
+            value={enteredValues.email || ''}
+            onChange={handleChange}
           />
-          <span className='profile__error'>Необходимо ввести E-mail</span>
+          <span className='profile__error'>{errors.email}</span>
         </label>
       </form>
       <div className='profile__footer'>
-        <button form='profile' type='submit' className='profile__button-edit'>Редактировать</button>
+        <button form='profile' type='submit' className={!isFormValid ? 'profile__button-edit profile__button-edit-disabled' : 'profile__button-edit'} disabled={!isFormValid}>Редактировать</button>
         <Link to='/'>
-          <button type='button' className='profile__button-exit'>Выйти из аккаунта</button>
+          <button type='button' className='profile__button-exit' onClick={() => signOut()}>Выйти из аккаунта</button>
         </Link>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Promo.css';
 import Header from '../Header/Header';
 import promologo from '../../images/promo_logo.svg';
@@ -6,7 +6,10 @@ import NavTab from '../NavTab/NavTab';
 
 const Promo = ({loggedIn}) => {
 
-  const [isNavTabMenuOpen, setIsNavTabMenuOpen] = useState(true);
+    // состояние меню NavTab
+  const [isNavTabMenuOpen, setIsNavTabMenuOpen] = React.useState(true);
+
+    // переключатель меню NavTab
   const toggleNavTab = () => {
     setIsNavTabMenuOpen(!isNavTabMenuOpen);
   }
@@ -31,7 +34,7 @@ const Promo = ({loggedIn}) => {
           onClose={toggleNavTab}
         />
         )
-      }
+        }
         <img alt='Логотип вэб разработчика' src={promologo} className='promo__logo'/>
       </div>
     </section>

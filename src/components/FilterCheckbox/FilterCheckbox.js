@@ -1,8 +1,7 @@
 import React from 'react';
 import './FilterCheckbox.css';
 
-
-const FilterCheckbox = () => {
+const FilterCheckbox = ({ isFilmsShort, handleShortFilms }) => {
 
   return (
     <section className='filter-checkbox'>
@@ -11,6 +10,8 @@ const FilterCheckbox = () => {
           className='filter-checkbox__input'
           type='checkbox'
           id='filter-checkbox'
+          onChange={handleShortFilms}
+          checked={isFilmsShort}
         />
         Короткометражки
       </label>

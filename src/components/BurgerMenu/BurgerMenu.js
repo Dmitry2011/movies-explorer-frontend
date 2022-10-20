@@ -1,16 +1,16 @@
 import React from 'react';
-import './BurgerMenu.css';
 import { NavLink } from 'react-router-dom';
-
+import './BurgerMenu.css';
 
 const BurgerMenu = ({ isOpen, onClose }) => {
 
-  function closeByEsc(event) {
+    // функция закрытия меню по нажатию на ESC
+  const closeByEsc = (event) => {
     if (event.key === "Escape") {
-      onClose && onClose();
+      onClose();
     }
-
   }
+
   React.useEffect(() => {
     document.addEventListener("keyup", closeByEsc);
     return () => {

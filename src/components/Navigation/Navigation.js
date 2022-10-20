@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Navigation.css';
 import { Link } from 'react-router-dom';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 
 const Navigation = ({loggedIn} ) => {
 
-  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
-  const toggleBurgerMenu = () => {
-    setIsBurgerMenuOpen(!isBurgerMenuOpen);
+    // состояние бургер меню
+  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = React.useState(false);
+
+    // закрыть бургер меню
+  const closeBurgerMenu = () => {
+    setIsBurgerMenuOpen(false);
   }
 
   return (
@@ -32,7 +35,7 @@ const Navigation = ({loggedIn} ) => {
           </div>
           <BurgerMenu
             isOpen = {isBurgerMenuOpen}
-            onClose={toggleBurgerMenu}
+            onClose={closeBurgerMenu}
           />
           <button type='button' onClick={()=>setIsBurgerMenuOpen(true)} aria-label='Кнопка окрытия меню с навигацией' className='navigation__button'/>
         </>
@@ -49,7 +52,6 @@ const Navigation = ({loggedIn} ) => {
         </div>
         )
       }
-
     </nav>
   )
 };

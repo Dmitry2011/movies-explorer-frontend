@@ -1,9 +1,22 @@
 import React from 'react';
 import './Register.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from "react-router-dom";
 import logo from '../../images/logo.svg';
+import validationInput from '../../utils/validation';
 
-const Register = () => {
+const Register = ({ register }) => {
+
+  const { enteredValues, handleChange, errors, isFormValid } = validationInput();
+
+    // экземпляр истории для навигации
+  const history = useHistory();
+
+    // обработчик сабмита
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    register(enteredValues);
+    history.push("/signin");
+  };
 
   return (
     <section className='register__container'>
@@ -16,7 +29,7 @@ const Register = () => {
         </Link>
       <div className='register__title'>Добро пожаловать!</div>
       </div>
-      <form id='register' className='register__form'>
+      <form id='register' className='register__form form' onSubmit={handleSubmit}>
         <label className='register__label'>Имя
           <input
             className='register__input'
@@ -26,8 +39,10 @@ const Register = () => {
             required
             minLength="2"
             maxLength="30"
+            value={enteredValues.name || ''}
+            onChange={handleChange}
           />
-          <span className='register__error'>Минимум 2 символа</span>
+          <span className='register__error'>{errors.name}</span>
         </label>
         <label className='register__label'>E-mail
           <input
@@ -36,8 +51,10 @@ const Register = () => {
             name='email'
             type='email'
             required
+            value={enteredValues.email || ''}
+            onChange={handleChange}
           />
-          <span className='register__error'>Необходимо ввести E-mail</span>
+          <span className='register__error'>{errors.email}</span>
         </label>
         <label className='register__label'>Пароль
           <input
@@ -46,12 +63,14 @@ const Register = () => {
             name='password'
             type='password'
             required
+            value={enteredValues.password || ''}
+            onChange={handleChange}
           />
-          <span className='register__error'>Что-то пошло не так...</span>
+          <span className='register__error'>{errors.password}</span>
         </label>
       </form>
       <div className='register__footer'>
-        <button form='register' type='submit' className='register__button-reg'>Зарегистрироваться</button>
+        <button form='register' type='submit' className={!isFormValid ? 'register__button-reg register__button-reg-disabled' : 'register__button-reg'} disabled={!isFormValid}>Зарегистрироваться</button>
         <div className='register__toauth'>
           <span className='register__toauth-titke'>Уже зарегистрированы?</span>
           <Link to='/signin' className='register__toauth-link'>Войти</Link>
