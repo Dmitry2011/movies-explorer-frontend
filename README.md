@@ -6,4 +6,4 @@ https://disk.yandex.ru/d/80xFbRmm1AP2Gw
 
 # Ссылка на пул реквест
 
-https://pull
+https://github.com/Dmitry2011/movies-explorer-frontend/pull/2
