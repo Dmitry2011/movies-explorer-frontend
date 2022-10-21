@@ -122,7 +122,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-  baseUrl: "http://localhost:3000",
+  baseUrl: "https://dmitrys-movies-api.nomorepartiesxyz.ru",
   headers: {
     Accept: 'application/json',
     authorization: `Bearer ${token}`,
