@@ -1,6 +1,6 @@
 import '../../../src/index.css';
 import React from 'react';
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory, Redirect } from "react-router-dom";
 import './App.css';
 import Profile from "../Profile/Profile";
 import Movies from "../Movies/Movies";
@@ -43,16 +43,31 @@ const App = () => {
     setPopupMessage('');
   };
 
-    // при перезагрузке странице авторизированному пользователю не нужно повторно вводить логин пароль
+    // при перезагрузке странице проверяем токен на валидность, авторизированному пользователю не нужно повторно вводить логин пароль
   React.useEffect(() => {
-    handleTokenCheck();
+    const token = localStorage.getItem('token');
+    mainApi.getData(token)
+      .then((data) => {
+        console.log(data)
+        setIsLoggedIn(true)
+        handleTokenCheck(token);
+      })
+      .catch((error) => {
+        signOut();
+          setPopupMessage(`Что то пошло не так с вашим цифровым ключем, авторизируйтесь ${error}`);
+          setIsPopupOpen(true);
+          setIsLoggedIn(false)
+          history.push("/signin")
+      })
   }, [])
+
 
     // регистрация
   const handleRegistration = async ({ name, email, password }) => {
     return mainApi.register({ name, email, password })
       .then(() => {
         handleAuthorization({ email, password });
+        history.push("/signin");
       })
       .catch(error => {
           setPopupMessage(`При регистрации произошла ошибка. ${error}`);
@@ -167,10 +182,11 @@ const App = () => {
     setSavedFilms([]);
     setIsLoggedIn(false);
     history.push('/');
+    console.log(localStorage)
   };
+  console.log()
 
-  const handleTokenCheck = () => {
-    const token = localStorage.getItem('token');
+  const handleTokenCheck = (token) => {
     if (token) {
       mainApi.getContent(token)
         .then((data) => {
@@ -223,12 +239,22 @@ const App = () => {
             loggedIn={isLoggedIn}
             updateUser={updateUser}
             signOut={signOut}
+            setPopupMessage={setPopupMessage}
+            setIsPopupOpen={setIsPopupOpen}
           />
           <Route path="/signin">
-            <Login login={handleAuthorization}/>
+            {isLoggedIn ?
+              <Redirect to= '/'/>
+            :
+              <Login login={handleAuthorization}/>
+            }
           </Route>
           <Route path="/signup">
-            <Register register={handleRegistration}/>
+            {isLoggedIn ?
+              <Redirect to= '/'/>
+            :
+              <Register register={handleRegistration}/>
+            }
           </Route>
           <Route exact path="*">
             <NotFound/>

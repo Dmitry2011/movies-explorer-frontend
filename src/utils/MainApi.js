@@ -119,6 +119,19 @@ class MainApi {
   getToken = (token) => {
     this._token =  `Bearer ${token}`
   }
+
+  // запрос для проверки валидности токена
+  getData = (token) => {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      }
+    })
+    .then(data => data)
+    .then((res) => this._handleResponse(res));
+  }
 }
 
 const mainApi = new MainApi({

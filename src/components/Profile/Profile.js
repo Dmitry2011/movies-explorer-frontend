@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 import validationInput from '../../utils/validation';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
-const Profile = ({ loggedIn, updateUser, signOut }) => {
+const Profile = ({ loggedIn, updateUser, signOut, setPopupMessage, setIsPopupOpen }) => {
 
     // текущий пользователь
   const currentUser = React.useContext(CurrentUserContext);
@@ -15,11 +15,16 @@ const Profile = ({ loggedIn, updateUser, signOut }) => {
     // обработчик сабмита
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateUser({
-      name: enteredValues.name,
-      email: enteredValues.email,
-    });
-  };
+    if (enteredValues.name !== currentUser.name || enteredValues.email !== currentUser.email) {
+      updateUser({
+        name: enteredValues.name,
+        email: enteredValues.email,
+      })
+    } else {
+      setPopupMessage('Вы не внесли изменения в свои данные. Измените имя или email.');
+      setIsPopupOpen(true);
+    }
+  }
 
   React.useEffect(() => {
     currentUser ? resetForm(currentUser) : resetForm();

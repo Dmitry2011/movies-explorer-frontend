@@ -28,6 +28,8 @@ const SavedMovies = ({ loggedIn, savedFilms, isLoading, onDelete, setPopupMessag
 
     // обработчик на сабмит
   const handleSubmitSearch = (inputValue) => {
+    localStorage.setItem('searchSavedFilms', inputValue);
+    console.log(localStorage)
     const moviesList = searchFilms(savedFilms, inputValue, isFilmsShort);
     setSearchQuery(inputValue);
     if (moviesList.length === 0) {

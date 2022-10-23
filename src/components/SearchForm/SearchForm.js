@@ -17,9 +17,13 @@ const SearchForm = ({ handleSubmitSearch, handleShortFilms, isFilmsShort }) => {
     handleSubmitSearch(enteredValues.searchInput, isFormValid, isFilmsShort);
   }
 
+
   React.useEffect(() => {
-    if (location.pathname === '/movies' && localStorage.getItem('movieSearch')) {
-      const searchValue = localStorage.getItem('movieSearch');
+    if (location.pathname === '/movies' && localStorage.getItem('searchFilms')) {
+      const searchValue = localStorage.getItem('searchFilms');
+      enteredValues.searchInput = searchValue;
+    } if (location.pathname === '/saved-movies' && localStorage.getItem('searchSavedFilms')) {
+      const searchValue = localStorage.getItem('searchSavedFilms');
       enteredValues.searchInput = searchValue;
     }
   }, [location]);

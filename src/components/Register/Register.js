@@ -1,6 +1,6 @@
 import React from 'react';
 import './Register.css';
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from '../../images/logo.svg';
 import validationInput from '../../utils/validation';
 
@@ -8,14 +8,12 @@ const Register = ({ register }) => {
 
   const { enteredValues, handleChange, errors, isFormValid } = validationInput();
 
-    // экземпляр истории для навигации
-  const history = useHistory();
 
     // обработчик сабмита
   const handleSubmit = async (event) => {
     event.preventDefault();
     register(enteredValues);
-    history.push("/signin");
+
   };
 
   return (
@@ -53,6 +51,7 @@ const Register = ({ register }) => {
             required
             value={enteredValues.email || ''}
             onChange={handleChange}
+            pattern={'^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$'}
           />
           <span className='register__error'>{errors.email}</span>
         </label>
