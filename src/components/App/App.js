@@ -46,19 +46,16 @@ const App = () => {
     // при перезагрузке странице проверяем токен на валидность, авторизированному пользователю не нужно повторно вводить логин пароль
   React.useEffect(() => {
     const token = localStorage.getItem('token');
-    mainApi.getData(token)
-      .then((data) => {
-        console.log(data)
-        setIsLoggedIn(true)
-        handleTokenCheck(token);
-      })
-      .catch((error) => {
-        signOut();
-          setPopupMessage(`Что то пошло не так с вашим цифровым ключем, авторизируйтесь ${error}`);
-          setIsPopupOpen(true);
-          setIsLoggedIn(false)
-          history.push("/signin")
-      })
+    if (token) {
+      mainApi.getData(token)
+        .then(() => {
+          setIsLoggedIn(true)
+          handleTokenCheck(token);
+        })
+        .catch(() => {
+          signOut();
+        })
+    }
   }, [])
 
 
@@ -182,9 +179,8 @@ const App = () => {
     setSavedFilms([]);
     setIsLoggedIn(false);
     history.push('/');
-    console.log(localStorage)
   };
-  console.log()
+
 
   const handleTokenCheck = (token) => {
     if (token) {
